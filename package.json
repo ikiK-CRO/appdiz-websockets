@@ -1,20 +1,29 @@
 {
   "name": "appdiz-websockets",
   "version": "1.0.0",
-  "description": "",
+  "description": "Test Websockets",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ikiK-CRO/appdiz-websockets.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Kristijan Bičak",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ikiK-CRO/appdiz-websockets/issues"
   },
-  "homepage": "https://github.com/ikiK-CRO/appdiz-websockets#readme"
+  "engines": {
+    "node": "12.17.x"
+  },
+  "homepage": "https://github.com/ikiK-CRO/appdiz-websockets#readme",
+  "dependencies": {
+    "bufferutil": "^4.0.3",
+    "express": "^4.17.1",
+    "utf-8-validate": "^5.0.4",
+    "ws": "^7.4.3"
+  }
 }
