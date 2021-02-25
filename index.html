@@ -3,24 +3,47 @@
     <script>
       let HOST = location.origin.replace(/^http/, 'ws')
       let ws = new WebSocket(HOST);
+      
       let el;
       let test;
 
       ws.onmessage = (event) => {
-        el = document.getElementById('server-time');
-        test=document.getElementById('test');
-        let dat=JSON.parse(event.data)
-        console.log(dat)
+        el = document.getElementById('test');
+        test=document.getElementById('test1');
+        chat=document.getElementById('chat');
+        //let dat=JSON.parse(event.data)
+        //console.log(dat)
 
-        el.innerHTML = '1' + dat[0];
-        test.innerHTML = '2 ' + dat[1];
-        console.log(event)
+        //el.innerHTML = '1' + dat[0];
+        //test.innerHTML = '2 ' + dat[1];
+        chat.innerHTML = event.data;
+        console.log(event.data)
       };
     </script>
   </head>
   <body>
-    <p id="server-time"></p>
     <p id="test"></p>
+    <p id="test1"></p>
+    <h2>Chat:</h2>
+    <p id="chat"></p>
+    <br>
+    <div>
+        <input type="text" id="in">
+        <br>
+        <button id="btn">SEND</button>
+    </div>
+
+
+<script>
+    let btn=document.getElementById('btn');
+    let sendInput=document.getElementById('in');
+
+    btn.addEventListener("click", function(event){
+        console.log(sendInput.value)
+        ws.send(JSON.stringify(sendInput.value));
+    })
+    
+</script>
 
   </body>
 </html>
