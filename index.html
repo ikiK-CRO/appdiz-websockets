@@ -4,14 +4,23 @@
       let HOST = location.origin.replace(/^http/, 'ws')
       let ws = new WebSocket(HOST);
       let el;
+      let test;
 
       ws.onmessage = (event) => {
         el = document.getElementById('server-time');
-        el.innerHTML = 'Server time: ' + event.data;
+        test=document.getElementById('test');
+        let dat=JSON.parse(event.data)
+        console.log(dat)
+
+        el.innerHTML = '1' + dat[0];
+        test.innerHTML = '2 ' + dat[1];
+        console.log(event)
       };
     </script>
   </head>
   <body>
     <p id="server-time"></p>
+    <p id="test"></p>
+
   </body>
 </html>
