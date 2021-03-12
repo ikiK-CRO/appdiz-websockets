@@ -2,8 +2,9 @@
   <head>
     <script>
       let HOST = location.origin.replace(/^http/, 'ws')
-      let ws = new WebSocket(HOST);
-      
+       let ws = new WebSocket(HOST);
+      //let ws = new WebSocket('wss://appdiz-websockets.herokuapp.com:3000');
+
       let el;
       let test;
 
@@ -38,7 +39,7 @@
     let btn=document.getElementById('btn');
     let sendInput=document.getElementById('in');
 
-    btn.addEventListener("click", function(event){
+    btn.addEventListener("click", function(){
         console.log(sendInput.value)
         ws.send(JSON.stringify(sendInput.value));
     })
